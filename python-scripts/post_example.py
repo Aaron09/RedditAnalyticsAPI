@@ -1,10 +1,10 @@
 import requests
 
 api_url = "http://localhost:3000/"
-post_details = "post/details?url="
-reddit_url = "https://www.reddit.com/r/NoStupidQuestions/comments/8kci0h/does_my_goldfish_know_who_i_am/"
+subreddit_details_ext = "subreddit/activity?name="
+subreddit_name = "LifeProTips"
 
-full_path = api_url + post_details + reddit_url
+full_path = api_url + subreddit_details_ext + subreddit_name
 resp = requests.get(full_path)
 
 print(resp.json())
