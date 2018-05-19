@@ -1,9 +1,12 @@
+require "rest-client"
+
 class PostController < ApplicationController
 
   def details
 
-    json_url = params[:post_url] + ".json"
-    page_json = JSON.parse(get(json_url))
+    json_url = params[:url] + ".json"
+    response = RestClient.get(json_url, headers={})
+    page_json = JSON.parse(response.body)
 
     metadata = page_json[0]["data"]["children"][0]["data"]
 

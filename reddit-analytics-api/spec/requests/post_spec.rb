@@ -9,14 +9,14 @@ RSpec.describe Post, type: :request do
     expected_title = "LPT: Save your PowerPoint presentations with a .pps extension instead of .ppt. They'll open directly in presentation mode and PowerPoint will close when the slideshow is over."
 
     headers = { "CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json" }
-    post "/post/details", params: { post_url: reddit_post_url }.to_json, headers: headers
+    get("/post/details?url=" + reddit_post_url)
 
     expect(response.header["Content-Type"]).to include "application/json"
     
     json_body = JSON.parse(response.body)
-    expect(json_body["author"].to eq("ZockMedic"))
-    expect(json_body["content"].to eq(""))
-    expect(json_body["title"].to eq(expected_title))
+    expect(json_body["author"]).to eq("ZockMedic")
+    expect(json_body["content"]).to eq("")
+    expect(json_body["title"]).to eq(expected_title)
   end
 
 end
