@@ -3,7 +3,6 @@ require "rest-client"
 class PostController < ApplicationController
 
   def details
-
     json_url = params[:url] + ".json"
     response = RestClient.get(json_url, headers={})
     page_json = JSON.parse(response.body)

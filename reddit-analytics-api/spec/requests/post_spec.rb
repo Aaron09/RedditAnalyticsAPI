@@ -4,7 +4,6 @@ require "json"
 RSpec.describe Post, type: :request do
 
   it "gets the basic details of a Reddit post as json" do
-
     reddit_post_url = "https://www.reddit.com/r/LifeProTips/comments/8kc3bc/lpt_save_your_powerpoint_presentations_with_a_pps/"
     expected_title = "LPT: Save your PowerPoint presentations with a .pps extension instead of .ppt. They'll open directly in presentation mode and PowerPoint will close when the slideshow is over."
 
